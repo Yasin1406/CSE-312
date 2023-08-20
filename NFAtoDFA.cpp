@@ -2,12 +2,70 @@
 using namespace std;
 vector<vector<char>> dfa_states;
 int state_num,sym_num,F_num;
-char transitions[1][1][1];
+char transitions[20][20][20],states[20],sym[20],final_states[20],init_state;
+int transition_num[20][20];
 int main(){
     int i,j,k;
-    cout<<"Enter number of states and symbols: ";
-    cin>>state_num>>sym_num;
-    cout<<"Enter number of final states: ";
-    cin>>F_num;
-
+    printf("Enter number of states and symbols: ");
+    scanf("%d %d",&state_num,&sym_num);
+    printf("Enter number of final states: ");
+    scanf("%d",&F_num);
+    getchar();
+    printf("\n");
+    // states[state_num];
+    // sym[sym_num];
+    // transitions[state_num][sym_num][state_num];
+    // final_states[F_num];
+    // transition_num[state_num][sym_num];
+    printf("Enter the states: ");
+    for(i=0;i<state_num;i++){
+        scanf("%c",&states[i]);
+        getchar();
+    }
+    printf("Enter symbols: ");
+    for(i=0;i<sym_num;i++){
+        scanf("%c",&sym[i]);
+        getchar();
+    }
+    printf("\n");
+    for(i=0;i<state_num;i++){
+        for(j=0;j<sym_num;j++){
+            printf("Enter number of transitions for State-%c and Symbol-%c: ",states[i],sym[j]);
+            scanf("%d",&transition_num[i][j]);
+            getchar();
+            if(transition_num[i][j]>0){
+                printf("Enter the transitions for State-%c and Symbol-%c: ",states[i],sym[j]);
+                for(k=0;k<transition_num[i][j];k++){
+                    scanf("%c",&transitions[i][j][k]);
+                    getchar();
+                }
+            }
+            cout<<endl;
+        }
+    }
+    printf("\nEnter initial state: ");
+    scanf("%c",&init_state);
+    getchar();
+    printf("Enter the final states: ");
+    for(i=0;i<F_num;i++){
+        scanf("%c",&final_states[i]);
+        getchar();
+    }
+    printf("\n\nStates\t");
+    for(i=0;i<sym_num;i++){
+        printf("Symbol-%c   ",sym[i]);
+    }
+    printf("\n");
+    for(i=0;i<state_num;i++){
+        printf("%c\t",states[i]);
+        for(j=0;j<sym_num;j++){
+            for(k=0;k<transition_num[i][j];k++){
+                printf("%c ",transitions[i][j][k]);
+            }
+            printf("\t\t");
+        }
+        printf("\n");
+    }
+    map<char,vector<char>> dfa_states;
+    
 }
