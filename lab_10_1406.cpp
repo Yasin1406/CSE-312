@@ -12,7 +12,9 @@ bool is_var(char ch);
 
 int main(){
     int i,j,k,cur;
+    cout<<"Enter string: ";
     cin>>str;
+    cout<<endl;
     string temp;
     left_output.push_back("S");
     left_output.push_back("A1B");
