@@ -164,10 +164,10 @@ void print_dfa_transition_table(){
     }
     cout<<endl;
     int i=0;
-    for(auto s:states){
+    for(auto s:dfa_states){
         cout<<"State-"<<i++<<"\t";
         for(auto sym:symbols){
-            cout<<dfa_transition_table[states_in[s]][symbols_in[sym]]<<"\t";
+            cout<<dfa_transition_table[get_index_of_set(s)][symbols_in[sym]]<<"\t";
         }
         cout<<endl;
     }
