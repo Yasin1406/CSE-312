@@ -7,6 +7,7 @@ int flag,state_num,sym_num,F_num;
 void isNFA(char states[state_num],char sym[sym_num],char final_states[F_num],char transition_list[state_num][sym_num][state_num],int transition_num[state_num][sym_num],char cur_state,int str_index,int path_index);
 int main(){
     int i,j,k;
+    // freopen("nfa.txt","r",stdin);
     printf("Enter number of states and symbols: ");
     scanf("%d %d",&state_num,&sym_num);
     printf("Enter number of final states: ");

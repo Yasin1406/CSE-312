@@ -1,1 +1,8 @@
-aa
+aaabb
+S
+aS
+aaSbS
+aaaSbSbS
+aaabSbS
+aaabbS
+aaabb

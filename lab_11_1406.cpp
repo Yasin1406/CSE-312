@@ -6,7 +6,7 @@ vector<string> productions={"S","aS","aSbS",""};
 vector<string> leftmost_output1,leftmost_output2;
 
 void print_derivation(vector<string> derivation);
-
+int count_b(int index);
 
 int main(){
     freopen("lab11.txt","r",stdin);
@@ -21,7 +21,7 @@ int main(){
         cout<<"The grammar may not be ambiguous."<<endl;
         return 0;
     }
-    int idx,index;
+    int idx,index,b_num;
     leftmost_output1.push_back("S");
     string temp,sub1,sub2,sub3;
     int i,cur=0;
@@ -33,6 +33,10 @@ int main(){
                 sub3="aSbS";
             }
             else{
+                b_num=count_b(i);
+                if(b_num>1){
+                    sub3="aSbS";
+                }
                 sub3="aS";
             }
             sub1=temp.substr(0,temp.size()-1);
@@ -128,4 +132,14 @@ void print_derivation(vector<string> derivation){
         cout<<" => "<<derivation[i];
     }
     cout<<endl;
+}
+
+int count_b(int index){
+    int count=0;
+    for(int i=index;i<str.size();i++){
+        if(str[i]=='b'){
+            count++;
+        }
+    }
+    return count;
 }
